@@ -1,0 +1,49 @@
+# Archivos generados
+bin/
+gen/
+out/
+
+# Archivos Gradle
+.gradle
+build/
+
+# Archivo de clase compilado
+*.class
+
+# Archivos Log
+*.log
+
+# IntelliJ
+*.iml
+*.iws
+.idea/
+!/gradle/wrapper/gradle-wrapper.jar
+
+# Librerias
+*.lib
+*.a
+*.la
+*.lo
+
+# Archivos de paquete
+*.jar
+*.nar
+*.zip
+*.tar.gz
+*.rar
+*.war
+*.ear
+
+# Ignorar arhcivos target
+target/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Mac
+.DS_Store
+
+# Maven
+log/
