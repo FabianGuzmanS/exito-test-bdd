@@ -1,5 +1,7 @@
 package co.com.exito.webApp.stepdefinitions.zonapublica;
 
+import co.com.exito.webApp.exceptions.CantidadNoDisponibleException;
+import co.com.exito.webApp.exceptions.ListaDeProductosAlteradaException;
 import co.com.exito.webApp.models.TipoProductoData;
 import co.com.exito.webApp.questions.ElNombreDeLosProductos;
 import co.com.exito.webApp.questions.ElNumeroDeProductos;
@@ -15,6 +17,8 @@ import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
 import cucumber.api.java.es.Y;
 
+import static co.com.exito.webApp.exceptions.CantidadNoDisponibleException.CANTIDAD_NO_DISPONIBLE;
+import static co.com.exito.webApp.exceptions.ListaDeProductosAlteradaException.LISTA_PRODUCTOS_ALTERADA;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -32,9 +36,15 @@ public class AgregarProductosStepDefinitions {
     theActorInTheSpotlight().attemptsTo(Agregar.productosAlCarrito(TipoProductoData.setData(dataTable).get(0)));
   }
 
-  @Entonces("^debera ver el nombre de los productos agregados en el carrito de compras$")
-  public void deberaVerElNombreDeLosProductosAgregadosEnElCarritoDeCompras() {
+  @Entonces("^debera ver en el carrito, los productos agregados$")
+  public void deberaVerEnElCarritoLosProductosAgregados() {
     theActorInTheSpotlight().attemptsTo(RevisarProductos.enElCarrito());
+    theActorInTheSpotlight().should(seeThat(ElNumeroDeProductos.agregadosEnElCarritoDeCompras())
+      .orComplainWith(ListaDeProductosAlteradaException.class, LISTA_PRODUCTOS_ALTERADA));
+  }
+
+  @Y("^ver el mismo nombre de los productos agregados, en el carrito de compras$")
+  public void verElMismoNombreDeLosProductosAgregadosEnElCarritoDeCompras() {
     theActorInTheSpotlight().should(seeThat(ElNombreDeLosProductos.enElCarrito()));
   }
 
@@ -45,11 +55,7 @@ public class AgregarProductosStepDefinitions {
 
   @Y("^ver la cantidad de cada producto de acuerdo a lo agregado$")
   public void verLaCantidadDeCadaProductoDeAcuerdoALoAgregado() {
-    theActorInTheSpotlight().should(seeThat(LaCantidadDeLosProductos.enElCarrito()));
-  }
-
-  @Y("^ver el numero total de productos agregados de acuerdo a lo agregado$")
-  public void verElNumeroTotalDeProductosAgregadosDeAcuerdoALoAgregado() {
-    theActorInTheSpotlight().should(seeThat(ElNumeroDeProductos.agregadosEnElCarritoDeCompras()));
+    theActorInTheSpotlight().should(seeThat(LaCantidadDeLosProductos.enElCarrito())
+      .orComplainWith(CantidadNoDisponibleException.class, CANTIDAD_NO_DISPONIBLE));
   }
 }

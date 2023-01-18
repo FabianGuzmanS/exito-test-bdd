@@ -25,10 +25,6 @@ public class RandomGenerator {
   public int generarCantidades(){
     int randomNumber = 0;
     randomNumber = rand.nextInt(10-1)+1;
-    /*if(randomNumber > 0){
-      randomNumber--;
-    }*/
-    System.out.println(randomNumber);
     return randomNumber;
   }
 }

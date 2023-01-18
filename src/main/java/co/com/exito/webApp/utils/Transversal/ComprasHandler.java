@@ -19,11 +19,10 @@ public class ComprasHandler {
     return productos;
   }
 
-  public String valorUnidadProducto(String valorTotalProducto, String cantidad) {
+  public String valorTotalXProducto(String valorUnitario, int cantidad) {
     String resultado;
-    int precioTotal = limpiarPrecio(valorTotalProducto);
-    int cant = Integer.parseInt(cantidad);
-    int total = precioTotal/cant;
+    int precioTotal = limpiarPrecio(valorUnitario);
+    int total = precioTotal*cantidad;
     NumberFormat formato = NumberFormat.getInstance();
     formato.setGroupingUsed(true);
     String numeroFormateado = formato.format(total);

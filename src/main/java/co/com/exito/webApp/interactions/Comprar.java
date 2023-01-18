@@ -1,7 +1,7 @@
 package co.com.exito.webApp.interactions;
 
-import co.com.exito.webApp.exceptions.CantidadNoDisponibleException;
 import co.com.exito.webApp.models.CarritoComprasData;
+import co.com.exito.webApp.tasks.zonapublica.Abrir;
 import co.com.exito.webApp.utils.Transversal.ComprasHandler;
 import co.com.exito.webApp.utils.Transversal.RandomGenerator;
 import net.serenitybdd.core.Serenity;
@@ -11,16 +11,16 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import net.thucydides.core.annotations.Step;
+import org.assertj.core.api.SoftAssertions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-import static co.com.exito.webApp.exceptions.CantidadNoDisponibleException.CANTIDAD_NO_DISPONIBLE;
 import static co.com.exito.webApp.userinterface.zonapublica.SubCategoriaPage.*;
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotPresent;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
-import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class Comprar implements Interaction {
 
@@ -33,24 +33,27 @@ public class Comprar implements Interaction {
   RandomGenerator randomGenerator = new RandomGenerator();
   ComprasHandler comprasHandler = new ComprasHandler();
   CarritoComprasData carritoComprasData;
-
-  int cantidad;
+  SoftAssertions softAssertions = new SoftAssertions();
+  static final Logger logger = LoggerFactory.getLogger(Comprar.class);
 
   @Override
+  @Step("{0} adiciona productos al carro, con botón compra rapida")
   public <T extends Actor> void performAs(T actor) {
     try {
       for (int i = 0; i < numeroProductos.size(); i++) {
         actor.attemptsTo(
           WaitUntil.the(BTN_COMPRA_RAPIDA.of(numeroProductos.get(i)), isPresent()).forNoMoreThan(20).seconds(),
-          Scroll.to(BTN_COMPRA_RAPIDA.of(numeroProductos.get(i))),
+          Scroll.to(ART_PRODUCTO.of(numeroProductos.get(i))),
+          WaitUntil.the(BTN_COMPRA_RAPIDA.of(numeroProductos.get(i)), isPresent()).forNoMoreThan(20).seconds(),
+          WaitUntil.the(BTN_COMPRA_RAPIDA.of(numeroProductos.get(i)), isCurrentlyVisible()).forNoMoreThan(20).seconds(),
           Click.on(BTN_COMPRA_RAPIDA.of(numeroProductos.get(i))),
           Click.on(BTN_MODAL_AGREGAR)
         );
-        cantidad = randomGenerator.generarCantidades();
+        int cantidad = randomGenerator.generarCantidades();
         for (int j = 0; j < cantidad - 1; j++) {
-          actor.should(seeThat(the(POPUP_CANTIDAD_NO_DISPONIBLE), isNotPresent())
-            .orComplainWith(CantidadNoDisponibleException.class, CANTIDAD_NO_DISPONIBLE));
-          actor.attemptsTo(Click.on(BTN_MODAL_AUMENTAR_CANTIDAD));
+          actor.attemptsTo(
+            WaitUntil.the(BTN_MODAL_AUMENTAR_CANTIDAD.of(numeroProductos.get(i)), isCurrentlyVisible()).forNoMoreThan(20).seconds(),
+            Click.on(BTN_MODAL_AUMENTAR_CANTIDAD));
         }
         String nombreProducto = Text.of(LBL_NOMBRE_PRODUCTO.of(numeroProductos.get(i))).viewedBy(actor).asString();
         String precioProducto = Text.of(LBL_PRECIO_PRODUCTO.of(numeroProductos.get(i))).viewedBy(actor).asString();
@@ -59,8 +62,10 @@ public class Comprar implements Interaction {
         actor.attemptsTo(Click.on(BTN_MODAL_CERRAR));
       }
     } catch (Exception e) {
-      e.printStackTrace();
+      logger.info("¡OCURRIO UN ERROR!");
       Serenity.getWebdriverManager().getCurrentDriver().quit();
+      softAssertions.fail(e.getMessage());
+      softAssertions.assertAll();
     }
   }
 

@@ -38,6 +38,7 @@ dependencies {
     implementation "junit:junit:$rootProject.ext.jUnitVersion"
     implementation "org.slf4j:slf4j-simple:1.7.26"
     implementation "org.jvnet.com4j:com4j:2.1"
+    implementation "org.assertj:assertj-core:3.12.2"
 
     testImplementation "org.assertj:assertj-core:3.12.2"
     testImplementation 'org.hamcrest:hamcrest-all:1.3'

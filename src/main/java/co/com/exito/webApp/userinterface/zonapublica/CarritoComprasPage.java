@@ -22,5 +22,9 @@ public class CarritoComprasPage {
 
   public static final Target FILA_PRODUCTO =
     Target.the("Número de productos")
-      .locatedBy("//tr[@class='product-item']");
+      .locatedBy("(//tr[@class='product-item'])[{0}]");
+
+  public static final Target POPUP_NOTIFICACION =
+    Target.the("PopUp notificación")
+      .locatedBy("//span[@class = 'vtex-front-messages-detail']");
 }
