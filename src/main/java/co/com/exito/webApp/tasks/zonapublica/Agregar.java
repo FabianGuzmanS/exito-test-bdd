@@ -54,9 +54,12 @@ public class Agregar implements Task {
             Click.on(BTN_CONFIRMAR_LOCALIZACION)
           ));
       actor.attemptsTo(
+        WaitUntil.the(PATH_PAGINA_ACTUAL, isPresent()).forNoMoreThan(20).seconds(),
+        Scroll.to(PATH_PAGINA_ACTUAL),
+        WaitUntil.the(BTN_VISTA_LISTA, isVisible()).forNoMoreThan(20).seconds(),
+        Click.on(BTN_VISTA_LISTA),
         WaitUntil.the(LISTA_PRODUCTOS, isCurrentlyVisible()).forNoMoreThan(20).seconds(),
         Scroll.to(LISTA_PRODUCTOS));
-
       int resultados = Serenity.getWebdriverManager().getCurrentDriver().findElements(By.xpath("//div[@class = 'exito-vtex-components-4-x-main']")).size();
       productos = randomGenerator.generarNumeroDeProducto(data.getNumeroProductos(), resultados);
 

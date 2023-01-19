@@ -17,3 +17,4 @@ Característica: Agregar productos al carrito de compras
     Ejemplos:
       | categoria  | subCategoria              | numeroProductos |
       | Tecnología | Computadores y accesorios | 5               |
+      | Mercado    | Licores                   | 5               |

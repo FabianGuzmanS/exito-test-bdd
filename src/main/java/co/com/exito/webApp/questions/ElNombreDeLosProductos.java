@@ -47,7 +47,6 @@ public class ElNombreDeLosProductos implements Question<Boolean> {
       }
     } catch (Exception e) {
       logger.info("¡OCURRIO UN ERROR!");
-      e.printStackTrace();
       Serenity.getWebdriverManager().getCurrentDriver().quit();
       softAssertions.fail(e.getMessage());
       softAssertions.assertAll();
