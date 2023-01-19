@@ -16,7 +16,6 @@ out/
 *.iml
 *.iws
 .idea/
-!/gradle/wrapper/gradle-wrapper.jar
 
 # Librerias
 *.lib
