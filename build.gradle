@@ -7,16 +7,19 @@ repositories {
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.1.4")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:3.3.4")
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
-apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'net.serenity-bdd.serenity-gradle-plugin'
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
@@ -24,9 +27,9 @@ compileTestJava.options.encoding = "UTF-8"
 defaultTasks 'clean', 'test', 'aggregate'
 
 ext {
-    serenityVersion = "3.2.4"
-    serenityCucumberVersion = "3.2.4"
-    appiumVersion = "7.3.0"
+    serenityVersion = "3.3.7"
+    serenityCucumberVersion = "3.3.7"
+    appiumVersion = "8.0.0"
     jUnitVersion = '4.13'
 }
 
