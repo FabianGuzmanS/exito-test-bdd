@@ -14,5 +14,5 @@ Característica: Agregar productos al carrito de compras
     Entonces debe ver el producto en el carrito de compras
     Ejemplos:
       | correo                   | password  | categoria | subCategoria |
-      | fabianPrueba@yopmail.com | Prueba123 | Mercado   | Licores      |
+      | fabianPrueba@yopmail.com | Prueba123 | Mercado   | Snacks       |
 

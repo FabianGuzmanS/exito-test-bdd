@@ -20,13 +20,25 @@ public class HomePage {
     Target.the("Lista ciudades")
       .locatedBy("//*[@resource-id='com.exito.appcompania:id/filled_exposed_dropdown_city']");
 
+  public static final Target DDLOPT_CIUDAD =
+    Target.the("Opción ciudad")
+      .locatedBy("//*[@resource-id='com.exito.appcompania:id/txtDropDownLabel' and @text ='{0}']");
+
   public static final Target DDL_ALMACEN =
     Target.the("Lista almacenes")
       .locatedBy("//*[@resource-id='com.exito.appcompania:id/filled_exposed_dropdown_store']");
 
+  public static final Target DDLOPT_ALMACEN =
+    Target.the("Opción almacen")
+      .locatedBy("//*[@resource-id='com.exito.appcompania:id/txtDropDownLabel' and @text='{0}']");
+
   public static final Target BTN_CONTINUAR =
     Target.the("Botón continuar")
       .locatedBy("//*[@resource-id='com.exito.appcompania:id/appCompatButton_continue']");
+
+  public static final Target POPUP_INFO_ACTUALIZADA =
+    Target.the("PopUp info actualizada")
+      .locatedBy("//*[@resource-id='com.exito.appcompania:id/tv_message']");
 
   public static final Target OPT_CATEGORIA =
     Target.the("Opción categoria")
@@ -52,5 +64,8 @@ public class HomePage {
     Target.the("Botón carrito compras")
       .locatedBy("//*[@resource-id='com.exito.appcompania:id/appCompatImageView_shopping_cart']");
 
+  public static final Target BTN_MI_CUENTA =
+    Target.the("Botón mi cuenta")
+      .locatedBy("//*[@resource-id='com.exito.appcompania:id/fifth_item']");
 
 }

@@ -3,10 +3,7 @@ package co.com.exito.mobileApp.stepdefinitions;
 import co.com.exito.mobileApp.models.AutenticacionUsuarioData;
 import co.com.exito.mobileApp.models.TipoProductoData;
 import co.com.exito.mobileApp.questions.ElNombreDelProducto;
-import co.com.exito.mobileApp.tasks.Abrir;
-import co.com.exito.mobileApp.tasks.Agregar;
-import co.com.exito.mobileApp.tasks.Enviar;
-import co.com.exito.mobileApp.tasks.RevisarProductos;
+import co.com.exito.mobileApp.tasks.*;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
@@ -19,12 +16,13 @@ public class AgregarProductosStepDefinitions {
 
   @Dado("que el usuario se autentico con sus credenciales")
   public void queElUsuarioSeAutenticoConSusCredenciales(DataTable credenciales) {
-    theActorInTheSpotlight().wasAbleTo(Abrir.ExitoApp());
+    theActorInTheSpotlight().wasAbleTo(Abrir.enElLogin());
     theActorInTheSpotlight().wasAbleTo(Enviar.lasCredenciales(AutenticacionUsuarioData.setData(credenciales).get(0)));
   }
 
   @Cuando("el agrega un producto al carro de compras")
   public void elAgregaUnProductoAlCarroDeCompras(DataTable filtros) {
+    theActorInTheSpotlight().attemptsTo(Seleccionar.ubicacacionDeRecogidaDeCompra());
     theActorInTheSpotlight().attemptsTo(Agregar.productoAlCarrito(TipoProductoData.setData(filtros).get(0)));
   }
 

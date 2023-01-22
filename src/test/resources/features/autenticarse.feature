@@ -4,7 +4,7 @@ Característica: Autenticarse en la App Éxito
   Quiero autenticarme en la app
   Para tener acceso a mi cuenta
 
-  Esquema del escenario: : Autenticacion exitosa
+  Esquema del escenario: Autenticacion exitosa
     Dado el usuario ingreso a la aplicación
     Cuando envia la información requerida
       | correo   | password   |

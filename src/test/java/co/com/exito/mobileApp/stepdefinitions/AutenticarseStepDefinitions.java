@@ -17,7 +17,7 @@ public class AutenticarseStepDefinitions {
 
   @Dado("^el usuario ingreso a la aplicación$")
   public void elUsuarioIngresoALaAplicacion() {
-    theActorInTheSpotlight().wasAbleTo(Abrir.ExitoApp());
+    theActorInTheSpotlight().wasAbleTo(Abrir.enElLogin());
   }
 
   @Cuando("^envia la información requerida$")
