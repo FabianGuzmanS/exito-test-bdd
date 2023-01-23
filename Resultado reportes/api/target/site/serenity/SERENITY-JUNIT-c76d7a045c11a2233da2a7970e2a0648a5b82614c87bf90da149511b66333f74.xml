@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Editar datos de empleados" skipped="0" tests="1" time="0.61" timestamp="2023-01-22 05:39:48"><testcase name="Editar todos los datos de un empleado"><failure message="&#10;Expected: &lt;200&gt;&#10;     but: was &lt;429&gt;" type="java.lang.AssertionError">
+Expected: &lt;200&gt;
+     but: was &lt;429&gt;</failure><system-err>
+Expected: &lt;200&gt;
+     but: was &lt;429&gt;&#13;
+co.com.dummy.api.stepdefinitions.EditarEmpleadoStepDefinitions.deberiaVerLaInformaciónActualizada(EditarEmpleadoStepDefinitions.java:25)&#13;
+✽.deberia ver la información actualizada(src/test/resources/features/editar_empleado.feature:12)&#13;
+</system-err></testcase></testsuite>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Eliminar empleado" skipped="0" tests="1" time="0.61" timestamp="2023-01-22 05:39:49"><testcase name="Eliminar empleados"><failure message="&#10;Expected: &lt;200&gt;&#10;     but: was &lt;429&gt;" type="java.lang.AssertionError">
+Expected: &lt;200&gt;
+     but: was &lt;429&gt;</failure><system-err>
+Expected: &lt;200&gt;
+     but: was &lt;429&gt;&#13;
+co.com.dummy.api.stepdefinitions.EliminarEmpleadoStepDefinitions.deberiaObtenerUnResultadoExitoso(EliminarEmpleadoStepDefinitions.java:23)&#13;
+✽.deberia obtener un resultado exitoso(src/test/resources/features/eliminar_empleado.feature:12)&#13;
+</system-err></testcase></testsuite>

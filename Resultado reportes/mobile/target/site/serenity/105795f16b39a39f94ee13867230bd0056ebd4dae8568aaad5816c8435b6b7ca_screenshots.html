@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css"><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Proyecto Tiendas Exito Movil App</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="ecfc9ae43b0aaff1c736566057800a2237b1a5071ad3fa817049a4271109bfca.html">Agregar Productos Al Carrito De Compras</a></span>
+                > <span class="truncate-60"><a
+                    href="105795f16b39a39f94ee13867230bd0056ebd4dae8568aaad5816c8435b6b7ca.html">Agregar 1 producto al carro </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 22-01-2023 13:12</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">Agregar Productos Al Carrito De Compras </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                Yo como usuario de la app Exito<br />
+Quiero agregar productos al carro de compras<br />
+Para validar los productos añadidos antes de pagar
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Agregar 1 producto al carro
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">Dado que el usuario se autentico con sus credenciales<br><table class='embedded'><thead><th>correo</th><th>password</th></thead><tbody><tr><td>&lt;correo&gt;</td><td>&lt;password&gt;</td></tr></tbody></table><br>Cuando el agrega un producto al carro de compras<br><table class='embedded'><thead><th>categoria</th><th>subCategoria</th></thead><tbody><tr><td>&lt;categoria&gt;</td><td>&lt;subCategoria&gt;</td></tr></tbody></table><br>Entonces debe ver el producto en el carrito de compras</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="0cd9b4e843996d28460d68e52f3801402b6c05c0254683fa637738f108720fe9.png" title=" 1: Agregar 1 producto al carro ({correo=fabianPrueba@yopmail.com, password=Prueba123, categoria=Mercado, subCategoria=Snacks})" width="1080"/>
+                <img src="0cd9b4e843996d28460d68e52f3801402b6c05c0254683fa637738f108720fe9.png" title=" Dado que el usuario se autentico con sus credenciales
+| correo | password |
+| fabianPrueba@yopmail.com | Prueba123 |" width="1080"/>
+                <img src="0cd9b4e843996d28460d68e52f3801402b6c05c0254683fa637738f108720fe9.png" title=" Fabian abre la app en el Login" width="1080"/>
+                <img src="0cd9b4e843996d28460d68e52f3801402b6c05c0254683fa637738f108720fe9.png" title=" Fabian clicks on Bot&oacute;n ingresar" width="1080"/>
+                <img src="0cd9b4e843996d28460d68e52f3801402b6c05c0254683fa637738f108720fe9.png" title=" Fabian abre la app en el Login (completed)" width="1080"/>
+                <img src="c11bd3bc4707c12879e5dea14f6181d29f194618e3e9663a09b704e5b627a345.png" title=" Fabian envia las credenciales de acceso" width="1080"/>
+                <img src="c11bd3bc4707c12879e5dea14f6181d29f194618e3e9663a09b704e5b627a345.png" title=" Fabian enters 'fabianPrueba@yopmail.com' into Campo de texto correo electronico" width="1080"/>
+                <img src="da81c277e2ef9a01d1b05727e84419cfdc86453fc549ce394797ad2cfc54d226.png" title=" Fabian enters 'Prueba123' into Campo de texto contrase&ntilde;a" width="1080"/>
+                <img src="b4ecbaf4c8cbee5920528521016cd9a9bd4baeecf7dd582c47f789c45e3b9681.png" title=" Fabian clicks on Bot&oacute;n ingresar" width="1080"/>
+                <img src="cdda5f22989516cf8989d5bb95a9eede19b6649610e4d10176ba7c675a04e707.png" title=" Fabian envia las credenciales de acceso (completed)" width="1080"/>
+                <img src="278d7b9f805747052d8fc504f5404e0ff6145491d1660a9eed9182a2e5b68501.png" title=" Dado que el usuario se autentico con sus credenciales
+| correo | password |
+| fabianPrueba@yopmail.com | Prueba123 | (completed)" width="1080"/>
+                <img src="0c3df446c7da4ec4259b5b583735c0f2762992452e1a2b8912da037143c1eefa.png" title=" Cuando el agrega un producto al carro de compras
+| categoria | subCategoria |
+| Mercado | Snacks |" width="1080"/>
+                <img src="0c3df446c7da4ec4259b5b583735c0f2762992452e1a2b8912da037143c1eefa.png" title=" Fabian selecciona la ubicaci&oacute;n para recoger las compras" width="1080"/>
+                <img src="0c3df446c7da4ec4259b5b583735c0f2762992452e1a2b8912da037143c1eefa.png" title=" Fabian clicks on Bot&oacute;n compras" width="1080"/>
+                <img src="5d81939bf0d5635c4727c430f5ca853183ec688eccc7d2da19a5805a79b1d97c.png" title=" Fabian clicks on Opci&oacute;n comprar y recoger" width="1080"/>
+                <img src="1f72bf8799668980fe6acbbd58fe67713afbc93edad5b32fdc8b8157633028df.png" title=" Fabian clicks on Lista ciudades" width="1080"/>
+                <img src="6ed3beb836b5478e61f57b4f2c682f3e3f14cd0818ea449eb095dcdb1d844c7f.png" title=" Fabian clicks on Opci&oacute;n ciudad" width="1080"/>
+                <img src="264ec20035d00e226febf689ad2d0c1b3f836ff0c49421a4bc8bfdd814e6270f.png" title=" Fabian clicks on Lista almacenes" width="1080"/>
+                <img src="2c79e22844cd613144d7d49fd4e7c30c327ff1ebea2193118ac598f14765ae40.png" title=" Fabian clicks on Opci&oacute;n almacen" width="1080"/>
+                <img src="da9b5b619b543214d1d6d6e9c0b7783d26bd4a598aad4c9ef2791e6ecfb99525.png" title=" Fabian clicks on Bot&oacute;n continuar" width="1080"/>
+                <img src="43311a998ca8234d47f9f4c27340b8c837d510a406dc25986197101109ff0df8.png" title=" Fabian clicks on Bot&oacute;n continuar" width="1080"/>
+                <img src="43311a998ca8234d47f9f4c27340b8c837d510a406dc25986197101109ff0df8.png" title=" Fabian selecciona la ubicaci&oacute;n para recoger las compras (completed)" width="1080"/>
+                <img src="ce958e3885921063c1257bd7f98cc59d31336c24565f36b39828e9aee3a413ea.png" title=" Fabian agrega productos al carrito" width="1080"/>
+                <img src="ce958e3885921063c1257bd7f98cc59d31336c24565f36b39828e9aee3a413ea.png" title=" Fabian filtra la busqueda de productos por categor&iacute;a y sub categor&iacute;a" width="1080"/>
+                <img src="ce958e3885921063c1257bd7f98cc59d31336c24565f36b39828e9aee3a413ea.png" title=" Fabian clicks on Opci&oacute;n categoria" width="1080"/>
+                <img src="fe747bef4ab0ffb463e1aeb2bc8c0929c3455eec6047131733719a03d68053d2.png" title=" Fabian clicks on Opci&oacute;n subcategoria" width="1080"/>
+                <img src="fe747bef4ab0ffb463e1aeb2bc8c0929c3455eec6047131733719a03d68053d2.png" title=" Fabian filtra la busqueda de productos por categor&iacute;a y sub categor&iacute;a (completed)" width="1080"/>
+                <img src="9d81c0210aa0df69cc3fe9abf21267a1986a17c4a597f16510897e30f0b151c4.png" title=" Fabian clicks on Bot&oacute;n agregar" width="1080"/>
+                <img src="2311240c41d8a0b6536a7396ae6415113058565eced78f5d5f6b294f0f21530f.png" title=" Fabian clicks on Bot&oacute;n aumentar cantidad" width="1080"/>
+                <img src="2311240c41d8a0b6536a7396ae6415113058565eced78f5d5f6b294f0f21530f.png" title=" Fabian agrega productos al carrito (completed)" width="1080"/>
+                <img src="2311240c41d8a0b6536a7396ae6415113058565eced78f5d5f6b294f0f21530f.png" title=" Cuando el agrega un producto al carro de compras
+| categoria | subCategoria |
+| Mercado | Snacks | (completed)" width="1080"/>
+                <img src="2311240c41d8a0b6536a7396ae6415113058565eced78f5d5f6b294f0f21530f.png" title=" Entonces debe ver el producto en el carrito de compras" width="1080"/>
+                <img src="2311240c41d8a0b6536a7396ae6415113058565eced78f5d5f6b294f0f21530f.png" title=" Fabian abre el carrito de compras" width="1080"/>
+                <img src="2311240c41d8a0b6536a7396ae6415113058565eced78f5d5f6b294f0f21530f.png" title=" Fabian clicks on Bot&oacute;n carrito compras" width="1080"/>
+                <img src="2311240c41d8a0b6536a7396ae6415113058565eced78f5d5f6b294f0f21530f.png" title=" Fabian abre el carrito de compras (completed)" width="1080"/>
+                <img src="3cd7d6d32d6c903e454fee232adba282c40ca20fa91cfaa07cfb790cb060bab5.png" title=" Then {0} visualiza el nombre del producto" width="1080"/>
+                <img src="3cd7d6d32d6c903e454fee232adba282c40ca20fa91cfaa07cfb790cb060bab5.png" title=" Entonces debe ver el producto en el carrito de compras (completed)" width="1080"/>
+                <img src="78dd2deabe72b7ccc40c6e81f0a5f814ad4c0aff42f923989363c9d9ca66e622.png" title=" Fabian cierra la sesi&oacute;n en la app" width="1080"/>
+                <img src="78dd2deabe72b7ccc40c6e81f0a5f814ad4c0aff42f923989363c9d9ca66e622.png" title=" Fabian clicks on Bot&oacute;n atras" width="1080"/>
+                <img src="b3724595cd96d6421a66554bd94d70fbbe259c3977c5f564ddbcaae5ffec91a0.png" title=" Fabian clicks on Bot&oacute;n mi cuenta" width="1080"/>
+                <img src="f77b1b2c82a0141d575ea4995aefb24ef25645a9a28ea8dfed4dbbb348eeabca.png" title=" Fabian clicks on Bot&oacute;n cerrar sesi&oacute;n" width="1080"/>
+                <img src="3f12ba4c723b3733ff5ec8e2163e3c6f87720b617a7100f4def78faa1c07a919.png" title=" Fabian clicks on Bot&oacute;n aceptar del popUp" width="1080"/>
+                <img src="3f12ba4c723b3733ff5ec8e2163e3c6f87720b617a7100f4def78faa1c07a919.png" title=" Fabian cierra la sesi&oacute;n en la app (completed): <span class='success-color'>SUCCESS</span>" width="1080"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 3.3.7</span>
+</div>
+</body>
+</html>
