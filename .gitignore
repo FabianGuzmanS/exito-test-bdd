@@ -5,6 +5,7 @@ out/
 
 # Archivos Gradle
 .gradle
+build/
 
 # Archivo de clase compilado
 *.class
