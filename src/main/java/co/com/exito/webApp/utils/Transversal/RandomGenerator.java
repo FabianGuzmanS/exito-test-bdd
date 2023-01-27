@@ -24,7 +24,7 @@ public class RandomGenerator {
 
   public int generarCantidades(){
     int randomNumber = 0;
-    randomNumber = rand.nextInt(10-1)+1;
+    randomNumber = rand.nextInt(2-1)+1;
     return randomNumber;
   }
 }

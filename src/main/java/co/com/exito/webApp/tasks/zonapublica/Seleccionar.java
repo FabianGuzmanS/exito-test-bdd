@@ -1,7 +1,6 @@
 package co.com.exito.webApp.tasks.zonapublica;
 
 import co.com.exito.webApp.models.TipoProductoData;
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -23,19 +22,14 @@ public class Seleccionar implements Task {
   @Override
   @Step("{0} selecciona una categoría y subcategoría del menú")
   public <T extends Actor> void performAs(T actor) {
-    try {
-      actor.attemptsTo(
-        WaitUntil.the(BTN_MENU, isVisible()).forNoMoreThan(10).seconds(),
-        Click.on(BTN_MENU),
-        WaitUntil.the(OPT_CATEGORIA.of(data.getCategoria()), isVisible()).forNoMoreThan(10).seconds(),
-        Click.on(OPT_CATEGORIA.of(data.getCategoria())),
-        WaitUntil.the(LNK_SUBCATEGORIA.of(data.getSubCategoria()), isVisible()).forNoMoreThan(10).seconds(),
-        Click.on(LNK_SUBCATEGORIA.of(data.getSubCategoria()))
-      );
-    } catch (Exception e) {
-      e.printStackTrace();
-      Serenity.getWebdriverManager().getCurrentDriver().quit();
-    }
+    actor.attemptsTo(
+      WaitUntil.the(BTN_MENU, isVisible()).forNoMoreThan(10).seconds(),
+      Click.on(BTN_MENU),
+      WaitUntil.the(OPT_CATEGORIA.of(data.getCategoria()), isVisible()).forNoMoreThan(10).seconds(),
+      Click.on(OPT_CATEGORIA.of(data.getCategoria())),
+      WaitUntil.the(LNK_SUBCATEGORIA.of(data.getSubCategoria()), isVisible()).forNoMoreThan(10).seconds(),
+      Click.on(LNK_SUBCATEGORIA.of(data.getSubCategoria()))
+    );
   }
 
   public static Seleccionar unaSubcategoria(TipoProductoData data) {

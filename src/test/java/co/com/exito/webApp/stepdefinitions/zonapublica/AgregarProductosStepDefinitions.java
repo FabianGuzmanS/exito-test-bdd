@@ -11,16 +11,18 @@ import co.com.exito.webApp.tasks.zonapublica.Abrir;
 import co.com.exito.webApp.tasks.zonapublica.Agregar;
 import co.com.exito.webApp.tasks.zonapublica.RevisarProductos;
 import co.com.exito.webApp.tasks.zonapublica.Seleccionar;
-import cucumber.api.DataTable;
-import cucumber.api.java.es.Cuando;
-import cucumber.api.java.es.Dado;
-import cucumber.api.java.es.Entonces;
-import cucumber.api.java.es.Y;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.es.Cuando;
+import io.cucumber.java.es.Dado;
+import io.cucumber.java.es.Entonces;
+import io.cucumber.java.es.Y;
+
 
 import static co.com.exito.webApp.exceptions.CantidadNoDisponibleException.CANTIDAD_NO_DISPONIBLE;
 import static co.com.exito.webApp.exceptions.ListaDeProductosAlteradaException.LISTA_PRODUCTOS_ALTERADA;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 
 public class AgregarProductosStepDefinitions {
@@ -39,7 +41,7 @@ public class AgregarProductosStepDefinitions {
   @Entonces("^debera ver en el carrito, los productos agregados$")
   public void deberaVerEnElCarritoLosProductosAgregados() {
     theActorInTheSpotlight().attemptsTo(RevisarProductos.enElCarrito());
-    theActorInTheSpotlight().should(seeThat(ElNumeroDeProductos.agregadosEnElCarritoDeCompras())
+    theActorInTheSpotlight().should(seeThat(ElNumeroDeProductos.agregadosEnElCarritoDeCompras(), equalTo(true))
       .orComplainWith(ListaDeProductosAlteradaException.class, LISTA_PRODUCTOS_ALTERADA));
   }
 

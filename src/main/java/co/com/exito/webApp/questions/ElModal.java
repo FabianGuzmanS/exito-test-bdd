@@ -14,12 +14,8 @@ public class ElModal implements Question<Boolean> {
   @Subject("visualiza el modal de localización")
   public Boolean answeredBy(Actor actor) {
     boolean visibilidad = false;
-    try {
-      WaitUntil.the(MODAL_LOCALIZACION, isCurrentlyVisible()).forNoMoreThan(30).seconds();
-      visibilidad = Visibility.of(MODAL_LOCALIZACION).viewedBy(actor).asBoolean();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    WaitUntil.the(MODAL_LOCALIZACION, isCurrentlyVisible()).forNoMoreThan(30).seconds();
+    visibilidad = Visibility.of(MODAL_LOCALIZACION).asBoolean().answeredBy(actor);
     return visibilidad;
   }
 

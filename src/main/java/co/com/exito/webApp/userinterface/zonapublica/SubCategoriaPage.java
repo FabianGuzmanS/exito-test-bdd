@@ -5,6 +5,10 @@ import org.openqa.selenium.By;
 
 public class SubCategoriaPage {
 
+  public static final Target CONTENEDOR_PRODUCTOS =
+    Target.the("Contenedor productos")
+      .locatedBy("//div[@id='search-result-anchor']/..");
+
   public static final Target PATH_PAGINA_ACTUAL =
     Target.the("Path pagina actual")
       .locatedBy("//div[@id='search-result-anchor']");

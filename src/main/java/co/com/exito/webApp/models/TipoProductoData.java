@@ -1,6 +1,7 @@
 package co.com.exito.webApp.models;
 
-import cucumber.api.DataTable;
+
+import io.cucumber.datatable.DataTable;
 
 import java.util.ArrayList;
 import java.util.List;
