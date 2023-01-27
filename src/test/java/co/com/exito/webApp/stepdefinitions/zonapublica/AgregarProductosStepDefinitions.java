@@ -47,17 +47,17 @@ public class AgregarProductosStepDefinitions {
 
   @Y("^ver el mismo nombre de los productos agregados, en el carrito de compras$")
   public void verElMismoNombreDeLosProductosAgregadosEnElCarritoDeCompras() {
-    theActorInTheSpotlight().should(seeThat(ElNombreDeLosProductos.enElCarrito()));
+    theActorInTheSpotlight().should(seeThat(ElNombreDeLosProductos.enElCarrito(), equalTo(true)));
   }
 
   @Y("^ver el precio total de los productos agregados$")
   public void verElPrecioTotalDeLosProductosAgregados() {
-    theActorInTheSpotlight().should(seeThat(ElPrecioTotal.porProducto()));
+    theActorInTheSpotlight().should(seeThat(ElPrecioTotal.porProducto(), equalTo(true)));
   }
 
   @Y("^ver la cantidad de cada producto de acuerdo a lo agregado$")
   public void verLaCantidadDeCadaProductoDeAcuerdoALoAgregado() {
-    theActorInTheSpotlight().should(seeThat(LaCantidadDeLosProductos.enElCarrito())
+    theActorInTheSpotlight().should(seeThat(LaCantidadDeLosProductos.enElCarrito(), equalTo(true))
       .orComplainWith(CantidadNoDisponibleException.class, CANTIDAD_NO_DISPONIBLE));
   }
 }
