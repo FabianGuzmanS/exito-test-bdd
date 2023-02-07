@@ -2,8 +2,8 @@ package co.com.dummy.api.stepdefinitions;
 
 import co.com.dummy.api.questions.ElCodigoRespuesta;
 import co.com.dummy.api.tasks.ConsultarEmpleados;
-import cucumber.api.java.es.Cuando;
-import cucumber.api.java.es.Entonces;
+import io.cucumber.java.es.Cuando;
+import io.cucumber.java.es.Entonces;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;

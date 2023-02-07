@@ -3,9 +3,10 @@ package co.com.dummy.api.stepdefinitions;
 import co.com.dummy.api.models.CrearEmpleadoData;
 import co.com.dummy.api.questions.ElCodigoRespuesta;
 import co.com.dummy.api.tasks.CrearEmpleado;
-import cucumber.api.java.es.Cuando;
-import cucumber.api.java.es.Dado;
-import cucumber.api.java.es.Entonces;
+
+import io.cucumber.java.es.Cuando;
+import io.cucumber.java.es.Dado;
+import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 import java.util.List;
